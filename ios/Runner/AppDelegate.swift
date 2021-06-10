@@ -7,6 +7,8 @@ import Flutter
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+    let GoogleAPIKey = Bundle.main.object(forInfoDictionaryKey: "GoogleAPIKey") as! String
+    GMSServices.provideAPIKey(GoogleAPIKey)
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

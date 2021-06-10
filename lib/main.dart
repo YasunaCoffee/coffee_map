@@ -1,6 +1,8 @@
 import 'package:coffee_map/pages/details.dart';
+import 'package:coffee_map/pages/map.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => MyHomePage(title: 'Find Your Coffee Shop'),
         'details': (context) => Details(),
+        'map': (context) => MapSample(),
       },
       theme: ThemeData(
         primarySwatch: Colors.teal,
@@ -96,7 +99,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPrimary: Colors.black,
                     shape: const StadiumBorder(),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'map');
+                  },
                 ),
               ],
             ),
