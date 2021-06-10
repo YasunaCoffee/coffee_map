@@ -1,3 +1,4 @@
+import 'package:coffee_map/pages/details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,10 +12,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Find Your Coffee Shop',
+      routes: {
+        '/': (context) => MyHomePage(title: 'Find Your Coffee Shop'),
+        'details': (context) => Details(),
+      },
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: MyHomePage(title: 'Find Your Coffee Shop'),
     );
   }
 }
@@ -32,28 +36,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(
-      //     'Coffee Beans Finder',
-      //     style: TextStyle(fontSize: 40.0),
-      //   ),
-      //   toolbarHeight: 100,
-      // ),
+      appBar: AppBar(
+        title: Text(
+          'Coffee Beans Finder',
+          style: GoogleFonts.sawarabiMincho(),
+        ),
+        toolbarHeight: 50,
+      ),
       body: Scrollbar(
         child: ListView(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                child: Text('COFFEE BEANS FINDER',
-                    style: GoogleFonts.sawarabiMincho()),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                child: Text('おいしいコーヒー豆のお店を選ぼう',
-                    style: GoogleFonts.sawarabiMincho()),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  child: Text('おいしいコーヒー豆のお店を選ぼう',
+                      style: GoogleFonts.sawarabiMincho()),
+                ),
               ),
             ),
             TextField(
@@ -84,7 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPrimary: Colors.white,
                     shape: const StadiumBorder(),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'details');
+                  },
                 ),
                 ElevatedButton(
                   child: const Text('All'),
@@ -108,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.white,
               child: SizedBox(
                 width: 400,
-                height: 300,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
@@ -167,7 +167,6 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.white,
               child: SizedBox(
                 width: 400,
-                height: 300,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
@@ -226,7 +225,6 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.white,
               child: SizedBox(
                 width: 400,
-                height: 300,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
