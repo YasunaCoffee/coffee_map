@@ -77,6 +77,9 @@ class Details extends StatelessWidget {
               ), //Padding
             ), //SizedBox
           ),
+          Card(
+            child: Text('HELLO'),
+          )
         ],
       ),
     ));
